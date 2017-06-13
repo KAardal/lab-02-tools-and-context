@@ -29,3 +29,12 @@ describe('reduce test', () => {
     expect(fp.reduce(['a', 'b', 'c', 'd'], [(a, c) => a + c, ''])).toEqual('abcd');
   });
 });
+
+describe('concat test', () => {
+  it('should return [1, 2, 3, 101, 102, 103]', () => {
+    expect(fp.concat([1, 2, 3], [101, 102, 103])).toEqual([1, 2, 3, 101, 102, 103]);
+  });
+  it(`should return [1, 2, 3, 'abc']`, () => {
+    expect(fp.concat([1, 2, 3], 'abc')).toEqual([1, 2, 3, 'abc']);
+  });
+});
