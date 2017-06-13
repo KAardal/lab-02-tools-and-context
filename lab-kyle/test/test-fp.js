@@ -20,3 +20,12 @@ describe('filter test', () => {
     expect(fp.filter([1, 'one', 2, {}, 3, []], n => !isNaN(parseFloat(n)) && isFinite(n))).toEqual([1, 2, 3]);
   });
 });
+
+describe('reduce test', () => {
+  it('should return 100', () => {
+    expect(fp.reduce([5, 5, 15, 25, 50], [(a, c) => a + c, 0])).toEqual(100);
+  });
+  it(`should return 'abcd'`, () => {
+    expect(fp.reduce(['a', 'b', 'c', 'd'], [(a, c) => a + c, ''])).toEqual('abcd');
+  });
+});
