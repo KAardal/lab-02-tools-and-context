@@ -5,6 +5,18 @@ const fp = require('../lib/fp.js');
 
 describe('map test', () => {
   it('should return [1, 2, 3, 4]', () => {
-    expect(fp.map([0, 1, 2, 3], n => n + 1));
+    expect(fp.map([0, 1, 2, 3], n => n + 1)).toEqual([1, 2, 3, 4]);
+  });
+  it(`should return ['a.', 'b.', 'c.', 'd.]`, () => {
+    expect(fp.map('abcd', n => n + '.')).toEqual(['a.', 'b.', 'c.', 'd.']);
+  });
+});
+
+describe('filter test', () => {
+  it('should return [1, 2, 3]', () => {
+    expect(fp.filter([1, 11, 2, 22, 3, 33], n => n < 10)).toEqual([1, 2, 3]);
+  });
+  it('should return [1, 2, 3]', () => {
+    expect(fp.filter([1, 'one', 2, {}, 3, []], n => !isNaN(parseFloat(n)) && isFinite(n))).toEqual([1, 2, 3]);
   });
 });
