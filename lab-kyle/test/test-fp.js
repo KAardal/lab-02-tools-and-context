@@ -43,7 +43,10 @@ describe('splice test', () => {
   it('should return [2,3]', () => {
     expect(fp.splice([1, 2, 3, 4, 5], [1, 2])).toEqual([2,3]);
   });
-  it(`should return [4, 5]`, () => {
-    expect(fp.splice([1, 2, 3, 4, 5], [3, 4, 'four', 'five'])).toEqual([4, 5]);
+  it(`should return [1, 2, 3, 'four', 'five']`, () => {
+    let arr = [1, 2, 3, 4, 5];
+    expect(fp.splice(arr, [3, 4, 'four', 'five'])).toEqual([4, 5]);
+    expect(arr).toEqual([1, 2, 3, 'four', 'five']);
   });
 });
+
